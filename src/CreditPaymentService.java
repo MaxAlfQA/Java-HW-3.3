@@ -1,17 +1,16 @@
 public class CreditPaymentService {
-    public int calculate(int a, int b, double c) {
+    public int calculate(int fullCredit, int period, double percent) {
 
 
-        int osk = a;
-        int pp = b * 12;
-        double ps = c / (100 * 12);
+        int perMonth = period * 12;
+        double percentMouth = percent / (100 * 12);
 
-        double base1 = 1 + ps;
-        double expon1 = -pp;
+        double base1 = 1 + percentMouth;
+        double expon1 = -perMonth;
         double result1 = Math.pow(base1, expon1);
 
         int result;
-        result = (int) ((int) osk * ps / (1 - result1));
+        result = (int) ((int) fullCredit * percentMouth / (1 - result1));
 
 
         return result;
